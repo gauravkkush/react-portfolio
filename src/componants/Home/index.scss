@@ -1,0 +1,86 @@
+.home-page{
+    .text-zone{
+        position: absolute;
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        max-height: 90%;
+    }
+
+    h1{
+        color: #fff;
+        font-size: 56px;
+        line-height: 53px;
+        font-family: 'sans-sarif';
+        margin:0;
+        font-weight: 400;
+
+        &:before{
+            content: '<h1>';
+            font-family: 'Times new roman';
+            color: #ffd700;
+            font-size: 18px;
+            position: absolute;
+            margin-top: -40px;
+            left: -15px;
+            opacity: 0.6;
+        }
+
+        &:after{
+            content: '<h1/>';
+            font-family: 'Times new roman';
+            color: #ffd700;
+            font-size: 18px;
+            position: absolute;
+            margin-top: 18px;
+            margin-left: 20px;
+            animation: fadeIn 1s 1.5s backwards;
+            opacity: 0.6;
+        }
+
+        img{
+            width: 32px;
+            margin-left: 20px;
+            opacity: 0;
+            height: auto;
+            animation: rotateIn 1s linear both;
+            animation-delay: 1.4s;
+        }
+    }
+
+    h2{
+        color: #8d8d8d;
+        margin-top: 20px;
+        height: 400;
+        font-size: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        letter-spacing: 3px;
+        animation: fadeIn 1s 1.8s backwards;
+    }
+
+    .flat-button{
+        color: yellow;
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 4px;
+        border: 1px solid yellow;
+        text-decoration: none;
+        padding: 10px 18px;
+        margin-top: 25px;
+        float: left;
+        border-radius: 10px;
+        animation: fadeIn 1s 1.8s backwards;
+        white-space: nowrap;
+
+        &:hover{
+            background: yellow;
+            color: #022c43;
+            border-color: #022c43;
+        }
+    }
+
+     
+
+
+}
