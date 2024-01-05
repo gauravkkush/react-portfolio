@@ -4,11 +4,6 @@
     position: absolute;
 }
 
-.top-tags{
-    bottom: auto;
-    top: 35px;
-}
-
 .tags{
     color: #ffd700;
     opacity: 0.6;
@@ -17,10 +12,6 @@
     left: 120px;
     font-size: 18px;
     font-family: 'La Belle Aurore';
-}
-
-.bottom-tag-html{
-    margin-left: -20px;
 }
 .container{
     width: 100%;
@@ -35,7 +26,11 @@
     animation: fadeIN 1s forwards;
     animation-delay: 1s;
 }
-
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 .about-page, .contact-page{
     .text-zone{
         position: absolute;
@@ -49,7 +44,6 @@
 
         h1{
             font-size: 50px;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: yellow;
             font-weight: 400;
             margin-top: 0;
@@ -58,7 +52,6 @@
             left: 10px;
 
             &::before{
-                content: "<h1>";
                 font-family: "times new roman";
                 font-size: 18px;
                 position: absolute;
@@ -68,7 +61,6 @@
                 line-height: 18px;
             }
             &::after{
-                content: "</h1>";
                 font-family: "times new roman";
                 font-size: 18px;
                 line-height: 18px;
