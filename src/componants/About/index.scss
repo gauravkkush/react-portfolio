@@ -8,7 +8,6 @@
     right: 0;
     overflow: hidden;
 }
-
 .cube-spinner{
     animation-name: spincube;
     animation-timing-function: ease-in-out;
@@ -31,7 +30,7 @@
         box-shadow: 0 0 20px 0px lightyellow;
     }
     .face1{
-        transform: translatZ(100px);
+        transform: translateZ(100px);
         color: #5ed4f4;
     }
     .face2{
