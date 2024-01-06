@@ -3,13 +3,12 @@
     flex-wrap: wrap;
     justify-content: space-around; /* Center the cards and distribute space evenly */
     gap: 20px; /* Adjust the gap between cards */
-    margin-left: 100px;
+    margin-left: 50px;
 
       h3 {
         font-size: 1.5rem;
-        font-weight: bolder;
         margin-bottom: 3rem;
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Courier New', Courier, monospace;
       }
       .projectName{
         float: left;
@@ -21,13 +20,20 @@
         gap: 20px;
       }
       h4 {
-        font-size: 1.2rem;
-        color: gold;
-        font-weight: bolder;
-        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.3rem;
+        color: #d99a5a;
+        text-decoration: none;
+        background-image: linear-gradient(#d99a5a, #d99a5a);
+        background-size: 0% 0.1em;
+        background-position-y: 100%;
+        background-position-x: 50%;
+        background-repeat: no-repeat;
+        transition: background-size 0.2s ease-in-out;
+        font-family: 'Courier New', Courier, monospace;
       }
       h4:hover{
         cursor: pointer;
+        background-size: 100% 0.1em;
       }
   
       .desc {

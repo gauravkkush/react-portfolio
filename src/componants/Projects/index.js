@@ -1,13 +1,21 @@
 import React from 'react'
 import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faReact } from '@fortawesome/free-brands-svg-icons'
+import {
+  faGithub,
+  faReact,
+  faPython,
+  faHtml5,
+} from '@fortawesome/free-brands-svg-icons'
 
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
+import { python } from 'fontawesome'
+import { icon } from '@fortawesome/fontawesome-svg-core'
+import { faCodeCompare, faDisplay } from '@fortawesome/free-solid-svg-icons'
 
 const Projects = () => {
   const projects = [
@@ -18,6 +26,7 @@ const Projects = () => {
       repoUrl: 'https://github.com/gauravkkush/blog-app',
       deployment: 'https://example.com',
       techs: ['React', 'NodeJs', 'mySQL'],
+      icon: faReact,
       date: 'Sep, 2023',
     },
     {
@@ -28,6 +37,7 @@ const Projects = () => {
         'https://github.com/gauravkkush/Weather-and-Rainfall-Prediction-Using-Machine-Learning',
       deployment: 'https://example2.com',
       techs: ['Python', 'ML'],
+      icon: faPython,
       date: 'May, 2023',
     },
     {
@@ -37,6 +47,7 @@ const Projects = () => {
       repoUrl: 'https://github.com/gauravkkush/to-do-list',
       deployment: 'https://example2.com',
       techs: ['HTML', 'CSS', 'Javascript'],
+      icon: faHtml5,
       date: 'August, 2022',
     },
     {
@@ -46,33 +57,35 @@ const Projects = () => {
       repoUrl: 'https://github.com/username/city-tutor',
       deployment: 'https://example2.com',
       techs: ['ASP.NET', 'MVC', 'C#'],
+      icon: faDisplay,
       date: 'August, 2019',
     },
-    // {
-    //   projectName: 'Awesome Project',
-    //   description:
-    //     'This is an amazing project showcasing the latest technology.',
-    //   repoUrl: 'https://github.com/username/repo',
-    //   deployment: 'https://example.com',
-    //   techs: ['Demo'],
-    //   date: 'yyyy',
-    // },
+    {
+      projectName: 'Awesome Project',
+      description:
+        'This is an amazing project showcasing the latest technology.',
+      repoUrl: 'https://github.com/username/repo',
+      deployment: 'https://example.com',
+      techs: ['Demo'],
+      date: 'yyyy',
+    },
     // Add more projects here...
   ]
 
   return (
     <div className="projects-container">
       <VerticalTimeline>
-        {projects.map((project, id) => {
+        {projects.map((project) => {
           return (
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               contentStyle={{ background: 'black', color: 'white' }}
               contentArrowStyle={{
-                borderRight: '7px solid  black',
+                borderRight: '7px solid  white',
               }}
               date={project.date}
-              iconStyle={{ background: 'black', color: 'white' }}
+              iconStyle={{ background: '#022c43', color: 'white' }}
+              icon={<FontAwesomeIcon icon={project.icon}></FontAwesomeIcon>}
             >
               <h3 className="vertical-timeline-element-title">
                 <div className="projectName">{project.projectName}</div>

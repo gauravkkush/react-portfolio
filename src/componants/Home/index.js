@@ -6,8 +6,36 @@ import Loader from 'react-loaders'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const nameArray = ['', 'G', 'a', 'u', 'r', 'a', 'v']
+  const nameArray = [
+    'G',
+    'a',
+    'u',
+    'r',
+    'a',
+    'v',
+    ' ',
+    'K',
+    'u',
+    's',
+    'h',
+    'w',
+    'a',
+    'h',
+    'a',
+  ]
   const jobArray = [
+    'A',
+    'n',
+    ' ',
+    'a',
+    's',
+    'p',
+    'i',
+    'r',
+    'i',
+    'n',
+    'g',
+    ' ',
     'w',
     'e',
     'b',
@@ -38,12 +66,11 @@ const Home = () => {
     <>
       <div className=" container home-page">
         <div className="text-zone">
+        <h2>Welcome,</h2>
           <h1>
-            <span className="{letterClass}">H</span>
-            <span className={`${letterClass}_12`}>i</span>
-            <br />
             <span className={`${letterClass}_13`}>I</span>
             <span className={`${letterClass}_14`}>'m</span>
+            <br />
             <AnimatedLetters
               letterClass={letterClass}
               strArray={nameArray}
@@ -53,10 +80,10 @@ const Home = () => {
             <AnimatedLetters
               letterClass={letterClass}
               strArray={jobArray}
-              idx={20}
+              idx={10}
             />
           </h1>
-          <h2>Frontend Developer / JavaScript Beginner / Coder</h2>
+          <h2>Frontend Developer / Core Java / Javascript / Programmer</h2>
           <Link to="/contact" className="flat-button">
             CONTACT ME
           </Link>
