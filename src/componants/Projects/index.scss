@@ -1,9 +1,11 @@
 .projects-container {
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; /* Center the cards and distribute space evenly */
     gap: 20px; /* Adjust the gap between cards */
-    margin-left: 50px;
+    margin-left: 100px;
+    margin-right: 20px;
 
       h3 {
         font-size: 1.5rem;

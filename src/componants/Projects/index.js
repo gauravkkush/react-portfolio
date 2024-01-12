@@ -13,9 +13,7 @@ import {
   VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import { python } from 'fontawesome'
-import { icon } from '@fortawesome/fontawesome-svg-core'
-import { faCodeCompare, faDisplay } from '@fortawesome/free-solid-svg-icons'
+import { faDisplay } from '@fortawesome/free-solid-svg-icons'
 
 const Projects = () => {
   const projects = [
@@ -53,7 +51,7 @@ const Projects = () => {
     {
       projectName: 'City Tutor',
       description:
-        'Developed an online portal using ASP.NET with MVC architecture, to find tutors online. mplemented a three-tiered user interface design, with sections for User, Admin, and Teacher, and utilized MS SQL Server Database at the server-side for efficient data management.',
+        'Developed an online portal using ASP.NET with MVC architecture, to find tutors online. Implemented a three-tiered user interface design, with sections for User, Admin, and Teacher, and utilized MS SQL Server Database at the server-side for efficient data management.',
       repoUrl: 'https://github.com/username/city-tutor',
       deployment: 'https://example2.com',
       techs: ['ASP.NET', 'MVC', 'C#'],
