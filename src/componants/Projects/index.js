@@ -77,7 +77,7 @@ const Projects = () => {
           return (
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
-              contentStyle={{ background: 'black', color: 'white' }}
+              contentStyle={{ background: '#181818', color: 'white' }}
               contentArrowStyle={{
                 borderRight: '7px solid  white',
               }}
