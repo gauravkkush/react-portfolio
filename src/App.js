@@ -5,6 +5,7 @@ import Home from './componants/Home'
 import About from './componants/About'
 import Projects from './componants/Projects'
 import Contact from './componants/Contact'
+import Experience from './componants/Experience'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route exact index element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Route>

@@ -1,83 +1,73 @@
 import './index.scss'
-import AnimatedLetters from '../AnimatedLetters'
-import { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCss3,
-  faGitAlt,
-  faHtml5,
-  faJava,
-  faJsSquare,
-  faReact,
-} from '@fortawesome/free-brands-svg-icons'
-import Loader from 'react-loaders'
 
-const About = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
+const skillGroups = [
+  { title: 'Languages', items: ['Java', 'JavaScript', 'TypeScript', 'SQL'] },
+  {
+    title: 'Backend',
+    items: ['Spring Boot', 'REST APIs', 'Microservices', 'JPA', 'Hibernate'],
+  },
+  {
+    title: 'Automation',
+    items: ['Playwright', 'REST Assured', 'Cucumber', 'Postman'],
+  },
+  {
+    title: 'Data & tools',
+    items: ['MySQL', 'MongoDB', 'Git', 'Grafana', 'React.js'],
+  },
+]
 
-  useEffect(() => {
-    let timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
+const About = () => (
+  <main className="about-page page-shell">
+    <header className="page-header">
+      <p className="eyebrow">About me</p>
+      <h1>Engineering software from implementation to confidence.</h1>
+    </header>
 
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [])
-
-  return (
-    <>
-      <div className="container about-page">
-        <div className="stage-cube-cont">
-          <div className="cube-spinner">
-            <div className="face1">
-              <FontAwesomeIcon icon={faReact} color="#5ed4f4" />
-            </div>
-            <div className="face2">
-              <FontAwesomeIcon icon={faHtml5} color="#f06529" />
-            </div>
-            <div className="face3">
-              <FontAwesomeIcon icon={faCss3} color="#28a4d9" />
-            </div>
-            <div className="face4">
-              <FontAwesomeIcon icon={faJsSquare} color="#efd81d" />
-            </div>
-            <div className="face5">
-              <FontAwesomeIcon icon={faJava} color="#5d87a3" />
-            </div>
-            <div className="face6">
-              <FontAwesomeIcon icon={faGitAlt} color="#ec4d28" />
-            </div>
-          </div>
-        </div>
-
-        <div className="text-zone">
-          <h1>
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={['A', 'b', 'o', 'u', 't', ' ', 'm', 'e']}
-              idx={15}
-            />
-          </h1>
-          <p>
-            I'm a very ambitious front-end developer looking for a role in an
-            established IT company with the opportunity to work with the latest
-            technologies on challenging and diverse projects.
-          </p>
-          <p className="align-left">
-            I'm quiet confident, naturally curious, and perpetually working on
-            improving my chops one design problem at a time.
-          </p>
-          <p>
-            If I need to define myself in one sentence that would be a family
-            person, father of a beautiful daughter, a sports fanatic,
-            photography enthusiast, and tech-obsessed!!!
-          </p>
-        </div>
+    <section className="about-grid">
+      <div className="about-copy">
+        <p>
+          I’m a Software Engineer focused on Java backend development, with
+          hands-on experience building enterprise applications and the
+          automation systems that protect their quality.
+        </p>
+        <p>
+          At Birlasoft, I developed Spring Boot services, REST APIs, and React
+          interfaces backed by MySQL. At Adani Digital Labs, I work across 12
+          enterprise services, creating UI and API automation and investigating
+          application behaviour from the browser through to the database.
+        </p>
+        <p>
+          That combination has shaped how I work: understand the system end to
+          end, write maintainable code, and build quality in from the start. My
+          goal is to keep growing as a Backend Software Engineer working on
+          clean, scalable systems.
+        </p>
       </div>
-      <Loader type="pacman" />
-    </>
-  )
-}
+      <blockquote>
+        “Development experience helps me test beyond the surface. Quality
+        engineering helps me build with failure in mind.”
+      </blockquote>
+    </section>
+
+    <section className="skills-section">
+      <div className="section-heading">
+        <p className="eyebrow">Technical toolkit</p>
+        <h2>Skills I use to build and validate software</h2>
+      </div>
+      <div className="skill-grid">
+        {skillGroups.map((group) => (
+          <article className="skill-card" key={group.title}>
+            <h3>{group.title}</h3>
+            <ul>
+              {group.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+)
 
 export default About

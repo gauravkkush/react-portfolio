@@ -1,14 +1,28 @@
-html{
+html {
+  min-width: 320px;
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
+  min-width: 320px;
+  min-height: 100vh;
   margin: 0;
-  font:300 11px/1.4 'Helvetica Neue', 'sans-sarif';
-  color: #444;
-  background-color: #022c43;
-  overflow: hidden;
-  display: block;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(114, 207, 185, 0.055), transparent 30rem),
+    var(--background);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea { font-family: inherit; }
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }

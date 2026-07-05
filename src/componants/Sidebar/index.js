@@ -1,88 +1,51 @@
 import { Link, NavLink } from 'react-router-dom'
 import './index.scss'
-import Logos from '../../assets/images/logo-s.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faCode,
+  faBriefcase,
   faEnvelope,
-  faHome,
-  faProjectDiagram,
+  faFolderOpen,
+  faHouse,
   faUser,
 } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+const navItems = [
+  { to: '/', label: 'Home', icon: faHouse, end: true },
+  { to: '/about', label: 'About', icon: faUser },
+  { to: '/experience', label: 'Experience', icon: faBriefcase },
+  { to: '/projects', label: 'Projects', icon: faFolderOpen },
+  { to: '/contact', label: 'Contact', icon: faEnvelope },
+]
+
 const Sidebar = () => (
-  <div className="nav-bar">
-    <Link className="logo" to="/">
-      <img src={Logos} alt="logo"></img>
+  <aside className="nav-bar">
+    <Link className="logo" to="/" aria-label="Gaurav Kushwaha — Home">
+      <span>GK</span>
+      <strong>Gaurav Kushwaha</strong>
     </Link>
-    <nav>
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="home-link"
-        to="/"
-      >
-        <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
-      </NavLink>
-
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="about-link"
-        to="/about"
-      >
-        <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-      </NavLink>
-
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="project-link"
-        to="/projects"
-      >
-        <FontAwesomeIcon icon={faProjectDiagram} color="#4d4d4e" />
-      </NavLink>
-
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="contact-link"
-        to="/contact"
-      >
-        <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-      </NavLink>
+    <nav aria-label="Main navigation">
+      {navItems.map((item) => (
+        <NavLink
+          key={item.to}
+          to={item.to}
+          end={item.end}
+          className={({ isActive }) => (isActive ? 'active' : '')}
+        >
+          <FontAwesomeIcon icon={item.icon} />
+          <span><strong>{item.label}</strong></span>
+        </NavLink>
+      ))}
     </nav>
-    <ul>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.github.com/gauravkksuh"
-        >
-          <FontAwesomeIcon icon={faCode} color="#4d4de" />
-        </a>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.linkedin.com/in/gauravkkush"
-        >
-          <FontAwesomeIcon icon={faLinkedin} color="#4d4de" />
-        </a>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.github.com/gauravkkush"
-        >
-          <FontAwesomeIcon icon={faGithub} color="#4d4de" />
-        </a>
-      </li>
-    </ul>
-  </div>
+    <div className="nav-socials">
+      <a target="_blank" rel="noreferrer" href="https://github.com/gauravkkush" aria-label="GitHub">
+        <FontAwesomeIcon icon={faGithub} />
+      </a>
+      <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/gauravkkush" aria-label="LinkedIn">
+        <FontAwesomeIcon icon={faLinkedin} />
+      </a>
+    </div>
+  </aside>
 )
 
 export default Sidebar

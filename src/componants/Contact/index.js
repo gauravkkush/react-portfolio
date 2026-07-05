@@ -1,112 +1,137 @@
 import './index.scss'
-import Loader from 'react-loaders'
-import AnimatedLetters from '../AnimatedLetters'
-import { useEffect, useState, useRef } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from 'emailjs-com'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {CIcon} from '@coreui/icons-react'
+import {cibLeetcode} from '@coreui/icons'
+import { faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const refForm = useRef()
+  const formRef = useRef()
+  const [status, setStatus] = useState('')
 
-  useEffect(() => {
-    let timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
+  const sendEmail = async (event) => {
+    event.preventDefault()
+    setStatus('Sending…')
 
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [])
-
-  const sendEmail = (e) => {
-    e.preventDefault()
-
-    emailjs
-      .sendForm('gmail', 'email_temp', refForm.current, 'xpJYBzpUXujNEBSQW')
-      .then(
-        () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
-        },
-        () => {
-          alert('Failed to send the message, please try again')
-        }
+    try {
+      await emailjs.sendForm(
+        'gmail',
+        'email_temp',
+        formRef.current,
+        'xpJYBzpUXujNEBSQW'
       )
+      formRef.current.reset()
+      setStatus('Thanks—your message has been sent.')
+    } catch {
+      setStatus(
+        'The form could not send right now. Please email me directly instead.'
+      )
+    }
   }
 
   return (
-    <>
-      <div className="contact-page container">
-        <div className="text-zone">
-          <h1>
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'm', 'e']}
-              idx={15}
-            />
-          </h1>
+    <main className="contact-page page-shell">
+      <div className="contact-layout">
+        <section className="contact-intro">
+          <p className="eyebrow">Contact</p>
+          <h1>Let’s build something dependable.</h1>
           <p>
-            I am interested in freelance opportunities - especially on ambitious
-            or large projects. However, if you have any other requests or
-            questions, don't hesitate to contact me using below form either.
+            I’m interested in backend engineering opportunities and thoughtful
+            software projects. If my <b>Java</b>, <b>Spring Boot</b>, or{' '}
+            <b>automation</b> experience could help your team, I’d be glad to
+            hear from you.
           </p>
-          <dib className="contact-form">
-            <form ref={refForm} onSubmit={sendEmail}>
-              <ul>
-                <li className="half">
-                  <input type="text" name="name" placeholder="Name" required />
-                </li>
-                <li className="half">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                  />
-                </li>
-                <li>
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                  />
-                </li>
-                <li>
-                  <textarea
-                    placeholder="Message"
-                    name="message"
-                    required
-                  ></textarea>
-                </li>
-                <li>
-                  <input type="submit" className="flat-button" value="SEND" />
-                </li>
-              </ul>
-            </form>
-          </dib>
-        </div>
-        <div className="info-map">
-          Gaurav Kushwaha,
-          <br />
-          India, <br />
-          Lal Kuan, 201009 <br />
-          Ghaziabad
-          <br />
-          <span>kkushgaurav@gmail.com</span>
-        </div>
-        <div className="map">
-          <MapContainer center={[44.96366, 19.61045]} zoom={13}>
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[44.96366, 19.61045]}>
-              <Popup>Gaurav lives here...</Popup>
-            </Marker>
-          </MapContainer>
-        </div>
+          <div className="contact-links">
+            <a href="mailto:kkushgaurav@gmail.com">
+              <FontAwesomeIcon icon={faEnvelope} />
+              <span>
+                Email
+                <strong>kkushgaurav@gmail.com</strong>
+              </span>
+            </a>
+            <div>
+              <FontAwesomeIcon icon={faLocationDot} />
+              <span>
+                Location
+                <strong>Ahmedabad, Gujrat, India</strong>
+              </span>
+            </div>
+          </div>
+          <div className="nav-socials">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/gauravkkush"
+              aria-label="GitHub"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/gauravkkush"
+              aria-label="LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.leetcode.com/gauravkkush"
+              aria-label="LeetCode"
+            >
+              <CIcon icon={cibLeetcode} size="sm" />
+            </a>
+          </div>
+        </section>
+
+        <form className="contact-form" ref={formRef} onSubmit={sendEmail}>
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="First & Last Name"
+              required
+            />
+          </label>
+          <label>
+            Email
+            <input
+              type="email"
+              name="email"
+              placeholder="example@company.com"
+              required
+            />
+          </label>
+          <label>
+            Subject
+            <input
+              type="text"
+              name="subject"
+              placeholder="Backend engineering opportunity"
+              required
+            />
+          </label>
+          <label>
+            Message
+            <textarea
+              name="message"
+              placeholder="Tell me a little about the role or project…"
+              required
+            />
+          </label>
+          <div className="form-footer">
+            <p aria-live="polite">{status}</p>
+            <button className="button button-primary" type="submit">
+              Send message
+            </button>
+          </div>
+        </form>
       </div>
-      <Loader type="pacman" />
-    </>
+    </main>
   )
 }
 
